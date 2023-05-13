@@ -1,9 +1,6 @@
 /**
  * Хранилище состояния приложения
  */
-
-import { v4 as uuidv4 } from 'uuid';
-
 class Store {
   constructor(initState = {}) {
     this.state = initState;
@@ -47,7 +44,7 @@ class Store {
   addItem() {
     this.setState({
       ...this.state,
-      list: [...this.state.list, {code: uuidv4(), title: 'Новая запись', clicks: 0}]
+      list: [...this.state.list, {code: Math.trunc(Math.random() * 1000), title: 'Новая запись', clicks: 0}]
     })
   };
 
