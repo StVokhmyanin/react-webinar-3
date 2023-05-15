@@ -41,6 +41,5 @@ export function pluralWord (variant1, variant2, clicks) {
 };
 
 export function getMaxCode (list) {
-  const code = Math.max(...list.map(i => i.code)) + 1;
-  return code;
+  return Math.max(...list.map(i => i.code)) + 1;
 }
