@@ -26,3 +26,21 @@ export function createElement(name, props = {}, ...children) {
 
   return element;
 }
+
+export function pluralWord (variant1, variant2, clicks) {
+  if (clicks == 2 || clicks == 3 || clicks == 4) {
+    return variant2;
+  }
+  if (
+    clicks > 20 &&
+    (clicks % 10 == 2 || clicks % 10 == 3 || clicks % 10 == 4)
+  ) {
+    return variant2;
+  }
+  return variant1;
+};
+
+export function getMaxCode (list) {
+  const code = Math.max(...list.map(i => i.code)) + 1;
+  return code;
+}

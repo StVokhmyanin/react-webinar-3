@@ -1,5 +1,5 @@
 import React from "react";
-import { createElement } from "./utils.js";
+import { pluralWord } from "./utils.js";
 import "./styles.css";
 
 /**
@@ -10,16 +10,7 @@ import "./styles.css";
 function App({ store }) {
   const list = store.getState().list;
 
-  const countWord = (clicks) => {
-    if (clicks == 2 || clicks == 3 || clicks == 4) {
-      return 'раза';
-    }
-    if (clicks > 20 && (clicks % 10 == 2 || clicks % 10 == 3 || clicks % 10 == 4)) {
-      return 'раза';
-    }
-    return 'раз';
-  };
-
+  
   return (
     <div className="App">
       <div className="App-head">
@@ -37,10 +28,13 @@ function App({ store }) {
                 onClick={() => store.selectItem(item.code)}
               >
                 <div className="Item-code">{item.code}</div>
-                <div className="Item-title">{item.title}</div>
-                {item.clicks > 0 && (
-                  <div className="Item-clicks">Выделяли {item.clicks} {countWord(item.clicks)}</div>
-                )}
+                <div className="Item-title">
+                  {item.title}
+                  {item.clicks > 0 && 
+                    ` |   Выделяли ${item.clicks} ${pluralWord("раз", "раза", item.clicks)}`
+                  }
+                </div>
+
                 <div className="Item-actions">
                   <button onClick={() => store.deleteItem(item.code)}>
                     Удалить

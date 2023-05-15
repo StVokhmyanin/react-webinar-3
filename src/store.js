@@ -1,6 +1,8 @@
 /**
  * Хранилище состояния приложения
  */
+import { getMaxCode } from './utils';
+
 class Store {
   constructor(initState = {}) {
     this.state = initState;
@@ -44,7 +46,7 @@ class Store {
   addItem() {
     this.setState({
       ...this.state,
-      list: [...this.state.list, {code: Math.trunc(Math.random() * 1000), title: 'Новая запись', clicks: 0}]
+      list: [...this.state.list, {code: getMaxCode(this.state.list), title: 'Новая запись', clicks: 0}]
     })
   };
 

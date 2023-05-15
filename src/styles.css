@@ -52,13 +52,8 @@ body {
 }
 
 .Item-title {
+  width: 100%;
   padding: 20px 10px;
-}
-
-.Item-clicks {
-  margin-right: auto;
-  border-left: 1px solid #000;
-  padding: 0px 10px;
 }
 
 .Item-actions {
