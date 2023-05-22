@@ -55,33 +55,24 @@ class Store {
 
   /**
    * Добавление товара в корзину
+   * @param code
    */
 
   addItemToCart(code) {
-    const item = this.state.list.find((item) => item.code === code);
-    if (!this.state.cart.find((item) => item.code === code)) {
-      this.setState({
-        ...this.state,
-        cart: [
-          ...this.state.cart,
-          { ...item, quantity: item.quantity + 1 || 1 },
-        ],
-      });
-    } else {
-      this.setState({
-        ...this.state,
-        cart: this.state.cart.map((item) => {
-          if (item.code === code) {
-            return {...item, quantity: item.quantity + 1}
-          }
-          return item;
-        })
-      });
-    }
+    const item = this.state.cart.find((item) => item.code === code);
+    return this.setState({
+      ...this.state,
+      cart: item
+        ? this.state.cart.map((item) =>
+            item.code === code ? { ...item, quantity: item.quantity + 1 } : item)
+        : [...this.state.cart,
+          {...this.state.list.find((item) => item.code === code), quantity: 1,}]
+    });
   }
 
   /**
    * Удаление товара из корзины
+   * @param code
    */
 
   deleteItemFromCart(code) {
@@ -89,6 +80,26 @@ class Store {
       ...this.state,
       cart: this.state.cart.filter((item) => item.code !== code),
     });
+  }
+
+  /**
+   * Общая стоимость корзины
+   */
+
+  totalCost() {
+    return this.state.cart.reduce((acc, item) => {
+      return acc + item.quantity * item.price;
+    }, 0);
+  }
+
+  /**
+   * Общее количество уникальных товаров
+   */
+
+  totalQuantity() {
+    return this.state.cart.reduce((acc, item) => acc.add(item.code),
+      new Set(),
+    ).size;
   }
 
   /**

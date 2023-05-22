@@ -2,16 +2,28 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./style.css";
 import Button from "../button";
-import { plural, totalCost } from "../../utils";
+import { plural } from "../../utils";
 
-function Controls({ onClick, store }) {
-
-  console.log('render controls');
-
+function Controls({ onClick, totalQuantity, totalCost }) {
   return (
     <div className="Controls">
       <span>В корзине:</span>
-      <span><b>{store.length} {plural(store.length, {one: 'товар', few: 'товара', many: 'товаров'})} / {totalCost(store).toLocaleString("ru-RU")} &#8381;</b></span>
+      {totalQuantity === 0 && <span><b>пусто</b></span>}
+      {totalQuantity > 0 && (
+        <>
+          <span>
+            <b>
+              {totalQuantity} {" "}
+              {plural(totalQuantity, {
+                one: "товар",
+                few: "товара",
+                many: "товаров",
+              })}{" "}
+              / {totalCost.toLocaleString("ru-RU") } &#8381;
+            </b>
+          </span>
+        </>
+      )}
       <Button title={"Перейти"} onClick={onClick} />
     </div>
   );
@@ -19,6 +31,8 @@ function Controls({ onClick, store }) {
 
 Controls.propTypes = {
   onClick: PropTypes.func,
+  totalQuantity: PropTypes.number.isRequired,
+  totalCost: PropTypes.number.isRequired,
 };
 
 Controls.defaultProps = {
