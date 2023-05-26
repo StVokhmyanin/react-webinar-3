@@ -1,9 +1,7 @@
 import useSelector from "./use-selector";
-import useStore from "./use-store";
 
 export default function useLanguage(variants) {
 
-  const store = useStore();
   const select = useSelector(state => ({
     language: state.language.language
   }));
