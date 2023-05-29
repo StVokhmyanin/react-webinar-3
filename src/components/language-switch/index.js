@@ -1,9 +1,8 @@
 import React, { useCallback } from "react";
 import useStore from "../../store/use-store";
-import useLanguage from "../../store/use-language";
 import languages from "../../store/languageList";
-import { languageSwitchTitle } from "../../data/language";
 import "./style.css";
+import useTranslate from "../../store/use-translate";
 
 function LanguageSwitch() {
   const store = useStore();
@@ -17,7 +16,7 @@ function LanguageSwitch() {
 
   return (
     <div className="Language-switch">
-      {useLanguage(languageSwitchTitle)}
+      {useTranslate('languageSwitchTitle')}
       {languages.map((language) => {
         return (
           <div

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import {cn as bem} from '@bem-react/classname';
 import {numberFormat} from "../../utils";
 import './style.css';
-import useLanguage from "../../store/use-language";
-import { cartTotal } from "../../data/language";
+import useTranslate from "../../store/use-translate";
 
 function BasketTotal({sum}) {
 
@@ -12,7 +11,7 @@ function BasketTotal({sum}) {
 
   return (
     <div className={cn()}>
-      <span className={cn('cell')}>{useLanguage(cartTotal)}</span>
+      <span className={cn('cell')}>{useTranslate('cartTotal')}</span>
       <span className={cn('cell')}> {numberFormat(sum)} ₽</span>
       <span className={cn('cell')}></span>
     </div>

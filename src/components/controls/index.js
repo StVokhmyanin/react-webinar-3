@@ -1,14 +1,13 @@
 import {memo} from "react";
 import PropTypes from 'prop-types';
 import './style.css';
-import useLanguage from "../../store/use-language";
-import { addToCartButton } from "../../data/language";
+import useTranslate from "../../store/use-translate";
 
 function Controls({onAdd}){
 
   return (
     <div className='Controls'>
-      <button onClick={() => onAdd()}>{useLanguage(addToCartButton)}</button>
+      <button onClick={() => onAdd()}>{useTranslate('addToCartButton')}</button>
     </div>
   )
 }

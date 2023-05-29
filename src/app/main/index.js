@@ -8,11 +8,10 @@ import List from "../../components/list";
 import useStore from "../../store/use-store";
 import useSelector from "../../store/use-selector";
 import Pagination from "../../components/pagination";
-import useLanguage from "../../store/use-language";
-import { mainTitle } from "../../data/language";
 import Loading from "../../components/loading";
 import NavBar from "../../components/nav-bar";
 import NavMenu from "../../components/nav-menu";
+import useTranslate from "../../store/use-translate";
 
 function Main() {
   const store = useStore();
@@ -67,7 +66,7 @@ function Main() {
   return (
     <>
       <PageLayout>
-        <Head title={useLanguage(mainTitle)} />
+        <Head title={useTranslate('mainTitle')} />
         {isLoading && <Loading />}
         {!isLoading && (
           <>

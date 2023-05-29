@@ -1,13 +1,13 @@
 import React, { memo } from "react";
 import { NavLink } from "react-router-dom";
-import useLanguage from "../../store/use-language";
-import { mainLink } from "../../data/language";
+import useTranslate from "../../store/use-translate";
 import "./style.css";
 
 function NavMenu() {
+
   const links = [
     {
-      title: useLanguage(mainLink),
+      title: useTranslate('mainLink'),
       link: "/",
     },
   ];

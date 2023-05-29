@@ -1,108 +1,62 @@
-export const mainTitle = [
+export const index = [
   {
-    language: "RU",
-    text: "Магазин",
+    name: "mainLink",
+    RU: "Главная",
+    EN: "Home",
   },
   {
-    language: "EN",
-    text: "Shop",
-  },
-];
-
-export const mainLink = [
-  {
-    language: "RU",
-    text: "Главная",
+    name: "mainTitle",
+    RU: "Магазин",
+    EN: "Shop",
   },
   {
-    language: "EN",
-    text: "Home",
-  },
-];
-export const cartTitle = [
-  {
-    language: "RU",
-    text: "В корзине",
+    name: "cartTitle",
+    RU: "В корзине",
+    EN: "Cart",
   },
   {
-    language: "EN",
-    text: "Cart",
-  },
-];
-
-export const cartOpenButton = [
-  {
-    language: "RU",
-    text: "Перейти",
+    name: "cartOpenButton",
+    RU: "Перейти",
+    EN: "Open cart",
   },
   {
-    language: "EN",
-    text: "Open cart",
-  },
-];
-
-export const cartCloseButton = [
-  {
-    language: "RU",
-    text: "Закрыть ",
+    name: "cartCloseButton",
+    RU: "Закрыть",
+    EN: "Close",
   },
   {
-    language: "EN",
-    text: "Close",
-  },
-];
-
-export const emptyCart = [
-  {
-    language: "RU",
-    text: "пусто",
+    name: "emptyCart",
+    RU: "пусто",
+    EN: "empty",
   },
   {
-    language: "EN",
-    text: "empty",
-  },
-];
-
-export const cartTotal = [
-  {
-    language: "RU",
-    text: "Итого",
+    name: "cartTotal",
+    RU: "Итого",
+    EN: "Total",
   },
   {
-    language: "EN",
-    text: "Total",
-  },
-];
-
-export const cartModalTitle = [
-  {
-    language: "RU",
-    text: "Корзина",
+    name: "cartModalTitle",
+    RU: "Корзина",
+    EN: "Cart",
   },
   {
-    language: "EN",
-    text: "Cart",
-  },
-];
-
-export const languageSwitchTitle = [
-  {
-    language: "RU",
-    text: "Выберите язык",
+    name: "languageSwitchTitle",
+    RU: "Выберите язык",
+    EN: "Choose language",
   },
   {
-    language: "EN",
-    text: "Choose language",
-  },
-];
-
-export const addToCartButton = [
-  {
-    language: "RU",
-    text: "Добавить",
+    name: "addToCartButton",
+    RU: "Добавить",
+    EN: "Add to cart",
   },
   {
-    language: "EN",
-    text: "Add to cart",
+    name: "removeFromCartButton",
+    RU: "Удалить",
+    EN: "Delete",
+  },
+  {
+    name: "loading",
+    RU: "Подождите...",
+    EN: "Loading...",
   },
 ];

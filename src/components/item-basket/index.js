@@ -4,8 +4,8 @@ import ItemLink from '../item-link';
 import {numberFormat} from "../../utils";
 import {cn as bem} from "@bem-react/classname";
 import PropTypes from "prop-types";
+import useTranslate from '../../store/use-translate';
 import './style.css';
-import useLanguage from '../../store/use-language';
 
 function ItemBasket(props) {
 
@@ -14,17 +14,6 @@ function ItemBasket(props) {
   const callbacks = {
     onRemove: (e) => props.onRemove(props.item._id)
   };
-
-  const removeButton = [
-    {
-      language: "RU",
-      text: "Удалить",
-    },
-    {
-      language: "EN",
-      text: "Delete",
-    },
-  ];
 
   return (
     <div className={cn()}>
@@ -35,7 +24,7 @@ function ItemBasket(props) {
       <div className={cn('right')}>
         <div className={cn('cell')}>{numberFormat(props.item.price)} ₽</div>
         <div className={cn('cell')}>{numberFormat(props.item.amount || 0)} шт</div>
-        <div className={cn('cell')}><button onClick={callbacks.onRemove}>{useLanguage(removeButton)}</button></div>
+        <div className={cn('cell')}><button onClick={callbacks.onRemove}>{useTranslate('removeFromCartButton')}</button></div>
       </div>
     </div>
   )

@@ -1,7 +1,6 @@
 import React from "react";
 import { numberFormat } from "../../utils";
-import useLanguage from "../../store/use-language";
-import { addToCartButton } from "../../data/language";
+import useTranslate from '../../store/use-translate';
 import "./style.css";
 
 const ItemInfo = ({ item, onAdd }) => {
@@ -9,8 +8,6 @@ const ItemInfo = ({ item, onAdd }) => {
   const callbacks = {
     onAdd: () => onAdd(item._id)
   }
-
-  const buttonTitle = useLanguage(addToCartButton);
 
   return (
     <ul className="Item-info">
@@ -32,7 +29,7 @@ const ItemInfo = ({ item, onAdd }) => {
       </li>
       <li className="Item-info__item Item-info__item_size_large">
         <button className="Item-info__button" onClick={callbacks.onAdd}>
-          {buttonTitle}
+          {useTranslate('addToCartButton')}
         </button>
       </li>
     </ul>

@@ -4,18 +4,17 @@ import PropTypes from "prop-types";
 import { cn as bem } from "@bem-react/classname";
 import { numberFormat, plural } from "../../utils";
 import "./style.css";
-import useLanguage from "../../store/use-language";
-import { cartTitle, cartOpenButton, emptyCart } from "../../data/language";
+import useTranslate from "../../store/use-translate";
 
 function BasketTool({ sum, amount, onOpen }) {
 
   const cn = bem("BasketTool");
 
-  const emptyCartTitle = useLanguage(emptyCart);
+  const emptyCartTitle = useTranslate('emptyCart');
 
   return (
     <div className={cn()}>
-      <span className={cn("label")}>{useLanguage(cartTitle)}:</span>
+      <span className={cn("label")}>{useTranslate('cartTitle')}:</span>
       <span className={cn("total")}>
         {amount
           ? `${amount} ${plural(amount, {
@@ -25,7 +24,7 @@ function BasketTool({ sum, amount, onOpen }) {
             })} / ${numberFormat(sum)} ₽`
           : `${emptyCartTitle}`}
       </span>
-      <button onClick={onOpen}>{useLanguage(cartOpenButton)}</button>
+      <button onClick={onOpen}>{useTranslate('cartOpenButton')}</button>
     </div>
   );
 }
