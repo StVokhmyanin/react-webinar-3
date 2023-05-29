@@ -1,5 +1,6 @@
 import {codeGenerator} from "../../utils";
 import StoreModule from "../module";
+import { mainApi } from "../../api";
 
 class Catalog extends StoreModule {
 
@@ -11,18 +12,29 @@ class Catalog extends StoreModule {
   initState() {
     return {
       list: [],
-      count: 0
+      count: 0,
+      currentPage: 1,
+      itemsPerView: 10,
+      totalPages: 1
     }
   }
 
   async load(currentPage) {
-    const response = await fetch(`/api/v1/articles?limit=10&skip=${(currentPage - 1) * 10}&fields=items(_id, title, price),count`);
-    const json = await response.json();
+    const catalog = await mainApi.getCatalog(currentPage);
     this.setState({
        ...this.getState(),
-       list: json.result.items,
-       count: json.result.count
+       list: catalog.items,
+       count: catalog.count,
+       totalPages: Math.ceil(catalog.count / this.getState().itemsPerView),
+       currentPage: currentPage
     }, 'Загружены товары из АПИ');
+  }
+
+  setItemsPerView(itemsPerView) {
+    this.setState({
+      ... this.getState(),
+      itemsPerView: itemsPerView
+    }, 'Изменено количество отображаемых товаров на странице')
   }
 }
 

@@ -1,6 +1,7 @@
 .Item-info {
   margin: 0;
-  padding: 0 40px;
+  padding: 20px 40px;
+  box-sizing: border-box;
   list-style-type: none;
   display: flex;
   flex-direction: column;

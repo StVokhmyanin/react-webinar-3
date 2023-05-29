@@ -4,7 +4,7 @@ import "./style.css";
 
 function ItemLink({title, link}) {
   return (
-    <Link to={`/goods/${link}`} className="Item-link">
+    <Link to={link} className="Item-link">
       {title}
     </Link>
   );

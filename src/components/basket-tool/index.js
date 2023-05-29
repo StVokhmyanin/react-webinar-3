@@ -5,7 +5,7 @@ import { cn as bem } from "@bem-react/classname";
 import { numberFormat, plural } from "../../utils";
 import "./style.css";
 import useLanguage from "../../store/use-language";
-import { mainLink, cartTitle, cartOpenButton, emptyCart } from "../../data/language";
+import { cartTitle, cartOpenButton, emptyCart } from "../../data/language";
 
 function BasketTool({ sum, amount, onOpen }) {
 
@@ -15,9 +15,6 @@ function BasketTool({ sum, amount, onOpen }) {
 
   return (
     <div className={cn()}>
-      <NavLink to={"/"} className={cn("link")}>
-        {useLanguage(mainLink)}
-      </NavLink>
       <span className={cn("label")}>{useLanguage(cartTitle)}:</span>
       <span className={cn("total")}>
         {amount

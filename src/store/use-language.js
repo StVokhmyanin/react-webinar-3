@@ -12,6 +12,5 @@ export default function useLanguage(variants) {
       text = variant.text;
     }
   });
-
   return text;
 }

@@ -1,14 +1,9 @@
-import { useCallback, useContext, useEffect, useState } from "react";
 import {
-  createBrowserRouter,
-  Link,
   Route,
-  RouterProvider,
   Routes,
 } from "react-router-dom";
 import Main from "./main";
 import Basket from "./basket";
-import useStore from "../store/use-store";
 import useSelector from "../store/use-selector";
 import Item from "./item";
 
@@ -23,7 +18,8 @@ function App() {
     <>
       <Routes>
         <Route path={"/"} element={<Main />} />
-        <Route path={"/goods/:id"} element={<Item />} />
+        <Route path={"/catalog/:id"} element={<Main />} />
+        <Route path={"/articles/:id"} element={<Item />} />
       </Routes>
       {activeModal === "basket" && <Basket />}
     </>

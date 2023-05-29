@@ -1,4 +1,5 @@
 import StoreModule from "../module";
+import { mainApi } from "../../api";
 
 class Item extends StoreModule {
 
@@ -13,12 +14,12 @@ class Item extends StoreModule {
   }
 
   async load(id) {
-    const response = await fetch(`/api/v1/articles/${id}?fields=*,madeIn(title,code),category(title)`);
-    const json = await response.json();
+    const item = await mainApi.getItem(id);
     this.setState({
        ...this.getState(),
-       item: json.result
+       item: item
     }, 'Загружен товар из АПИ');
+    return item;
   }
 }
 
